@@ -30,13 +30,12 @@ userController.get("/find/suggestedUsers", verifyToken, async (req, res) => {
 userController.get("/find/friends", verifyToken, async (req, res) => {
   try {
     const currentUser = await User.findById(req.user.id);
-    // console.log(currentUser.followings);
     const friends = await Promise.all(
       currentUser.followings.map((friendId) => {
         return User.findById(friendId).select("-password");
       })
     );
-    // console.log(friends);
+   
     return res.status(200).json(friends);
   } catch (error) {
     return res.status(500).json(error.message);
@@ -78,7 +77,6 @@ userController.get("/findAll", async (req, res) => {
 });
 // update
 userController.put("/updateUser/:userId", verifyToken, async (req, res) => {
-  //   console.log(req.params.userId, req.user.id);
   if (req.params.userId.toString() === req.user.id.toString()) {
     try {
       if (req.body.password) {
