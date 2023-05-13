@@ -175,27 +175,5 @@ userController.put(
     }
   }
 );
-// // bookmark
-// userController.put("/bookmark/:postId", verifyToken, async (req, res) => {
-//   try {
-//     const post = await Post.findById(req.postId).populate("user", "-password");
-//     if (!post) {
-//       return res.status(500).json({ msg: "No such post" });
-//     } else {
-//       if (
-//         post.user.bookmarkedPosts.some((post) => post._id === req.params.postId)
-//       ) {
-//         await User.findByIdAndUpdate(req.user.id, {
-//           $pull: { bookmarkedPosts: post },
-//         });
-//         return res
-//           .status(200)
-//           .json({ msg: "Successfully bookmarked the post" });
-//       }
-//     }
-//   } catch (error) {
-//     return res.status(500).json(error.message);
-//   }
-// });
 
 module.exports = userController;
