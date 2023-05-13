@@ -170,11 +170,7 @@ const [showForm, setShowForm] = useState(false)
             <button className={classes.editIcons} onClick={handleShowForm}><AiFillEdit/></button>
             </div>
 }
-            {/* {showModal &&
-              <div className={classes.modal}>onClick={() => setShowModal(true)}
-                <span onClick={handleShowForm}>Update Profile</span>
-              </div>
-            } */}
+            
 {
           showForm &&
           <div className={classes.updateProfileForm} onClick={() => setShowForm(false)}>
