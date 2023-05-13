@@ -39,7 +39,7 @@ function App() {
           element={user ? <PostDetails /> : <Navigate to="/login" />}
         />
       </Routes>
-      {/* <Footer /> */}
+      
     </div>
   );
 }
